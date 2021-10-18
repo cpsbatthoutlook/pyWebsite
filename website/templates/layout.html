@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %} {{ title }} {% endblock %}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+    </head>
+
+    <body>
+     
+
+        <div class="navbar">
+            <a href="{{ url_for('know.know_home') }}" class="navbar-brand">KnowledgeBase</a>
+            <a href="{{ url_for('know.pks') }}" class="navbar-item">SearchKnowledge</a>
+            <a href="{{ url_for('know.pka') }}" class="navbar-item">Add</a>
+            <a href="{{ url_for('book.book_home') }}" class="navbar-brand">Bookmarks</a>
+            
+        </div>
+
+        <div class="col-md-8"> 
+            {% with messages = get_flashed_messages(with_categories=true)  %} 
+                    {% if messages  %}
+                        {% for category, message in messages %}
+                           <div class="alert alert-{{ category }}" > {{ message }} XX from flash messages</div>
+                        {% endfor %}
+                    {% endif %}
+            {% endwith %}
+        </div> 
+
+        {{ simple_message }}
+        <div class="body-content">
+            {% block content %}
+            {% endblock %}
+            <hr/>
+        </div>
+    </body>
+</html

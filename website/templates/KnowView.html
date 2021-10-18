@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}
+ {{ title }}
+
+{% endblock %}
+{% block content %}
+
+<h3> {{ title }} </h3>
+<table width=100% border=0 cellspacing=1 cellpadding=1 name=First>
+    <tr><th>Category</th><th>Subcategory</th><th>Subject</th><th>  
+    <a href="/know/view/{{ form.id }}/update ">Edit </a>
+    </th></tr> 
+    <tr><th> {{ form.category}} </th><th> {{ form.subcategory}} </th><th> {{ form.subject }} </th><th></th></tr> 
+</table>
+<br /><PRE>   
+    {{ form.description }}
+ </PRE>
+ 
+ <a href="{{url_for('know.know_home') }} " > Go Back </a>
+
+{% endblock %}

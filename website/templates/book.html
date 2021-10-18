@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+{% block title %}
+ {{ title }}
+{% endblock %}
+{% block content %}
+
+<form method='POST' action="/book"  enctype="multipart/form-data">
+    <p />Select any catagory <select name="category" >
+        <option value="Python">Python</option>
+        <option value="Apache">Apache</option>
+    <option value="Bank">Bank</option>
+    <option value="Brampton">Brampton</option>
+    <option value="Business">Business</option>
+    <option value="Canada">Canada</option>
+    <option value="Car">Car</option>
+    <option value="Communication">Communication</option>
+    <option value="ComputerSales">ComputerSales</option>
+    <option value="Daddyji">Daddyji</option>
+    <option value="Education">Education</option>
+    <option value="Efficiency">Efficiency</option>
+    <option value="Entertainment">Entertainment</option>
+    <option value="Food">Food</option>
+    <option value="Finance">Finance</option>
+    <option value="Government">Government</option>
+    <option value="HomeImprovement">HomeImprovement</option>
+    <option value="HTML">HTML</option>
+    <option value="Java">Java</option>
+    <option value="Jojo">Jojo</option>
+    <option value="Linux">Linux</option>
+    <option value="Meher">Meher</option>
+    <option value="MQ">MQ</option>
+    <option value="MicroSoft">MicroSoft</option>
+    <option value="Music">Music</option>
+    <option value="MySQL">MySQL</option>
+    <option value="OpenSource">OpenSource</option>
+    <option value="Oracle">Oracle</option>
+    <option value="Others">Others</option>
+    <option value="Perl">Perl</option>
+    <option value="Personal">Personal</option>
+    <option value="RealEstate">RealEstate</option>
+    <option value="Rental">Rental</option>
+    <option value="Research">Research</option>
+    <option value="Security">Security</option>
+    <option value="Shopping">Shopping</option>
+    <option value="Sol10">Sol10</option>
+    <option value="SysAdmin">SysAdmin</option>
+    <option value="Tax">Tax</option>
+    <option value="Virtualization">Virtualization</option>
+    <option value="Weblogic">Weblogic</option>
+    <option value="Websphere">Websphere</option>
+    </select><p /><input type="submit" name="Select" value="Go for it" />
+
+    <a href="/book/">Add Bookmarks</a>    
+</form>
+
+<TABLE width=99% border=1><TR ALIGN=LEFT bgcolor=yellow ></TR><TH ALIGN=LEFT>
+    catagory
+</TH> 
+<TH ALIGN=LEFT>
+    Details
+</TH> <TH ALIGN=LEFT>Edit</TH> <TH ALIGN=LEFT>Delete</TH></TR>
+
+{% for f  in form.items %}
+<div class="form-group">
+    <TR><TD>
+        {{f.catagory }}</TD>
+     <TD><a href=" {{ f.url }} ">
+        {{f.details}}
+    </a></TD> 
+    <TD><a href="/book/{{ f.id }}/update">Edit? </a></TD>
+     <TD><a href="/book/{{ f.id }}/delete">Delete? </a></TD></TR>
+</div>
+     {% endfor %}
+
+</TABLE>
+   
+
+     <!-- First &nbsp&nbsp&nbsp Prev &nbsp&nbsp&nbsp1 &nbsp&nbsp&nbsp<a href="http://192.168.0.172/cgi-bin/bookmarks.cgi?pid=2&amp;Key=SysAdmin">2</a> &nbsp&nbsp&nbsp<a href="http://192.168.0.172/cgi-bin/bookmarks.cgi?pid=2&amp;Key=SysAdmin">Next</a> &nbsp&nbsp&nbsp<a href="http://192.168.0.172/cgi-bin/bookmarks.cgi?pid=2&amp;Key=SysAdmin">Last</a> &nbsp&nbsp&nbsp</div> -->
+     
+     {% for page_num in form.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+        {% if page_num %}
+            {% if page_num == form.page %}
+                <em>  <a href=" {{ url_for('book.book_home', page=page_num ) }} " > {{ page_num}} </a> </em>
+            {% else %}
+            <a href=" {{ url_for('book.book_home', page=page_num ) }} " > {{ page_num}} </a>
+            {% endif %}
+        {% else %}
+                ...
+        {% endif %}
+     
+        {% endfor %}
+
+{% endblock content %}
+

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}
+ {{ title }}
+{% endblock %}
+{% block content %}
+
+
+<form method="post" action="" enctype="multipart/form-data">
+<p /><h3>{{ legend }} record</h3><hr />Category&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select name="category" >
+<option value="Apache">Apache</option>
+<option value="Cgi">Cgi</option>
+<option value="Communication">Communication</option>
+<option value="Script">Script</option>
+<option value="Security">Security</option>
+<option value="Troubleshoot">Troubleshoot</option>
+
+</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<br /> 
+
+<br />
+<input id='id' type="hidden" value= {{ form.id }} >
+
+<div class="form-group">        
+    {{ form.subcategory.label(class="form-control-label") }}
+    {{ form.subcategory(class="form-control-label form-control-lg") }}
+</div>
+ 
+<div class="form-group">        
+    {{ form.subject.label(class="form-control-label") }}
+    {{ form.subject(class="form-control-label form-control-lg") }}
+</div>
+<div class="form-group">        
+    {{ form.description.label(class="form-control-label") }}
+    {{ form.description(class="form-control-label form-control-lg") }}
+</div>
+<div class="form-group"> {{ form.submit(class="btn btn-outline-info")}} </div>     
+<input type="reset"  name="Reset" value="Reset" /></form>	
+
+{% endblock %}
