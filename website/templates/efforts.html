@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}
+ {{ title }}
+{% endblock %}
+{% block content %}
+
+<TABLE width=99% border=1><TR ALIGN=LEFT bgcolor=yellow ></TR>
+<TH ALIGN=LEFT> Date</TH> 
+<TH ALIGN=LEFT>Woke Up</TH>
+<TH ALIGN=LEFT>Bedtime</TH>
+<TH ALIGN=LEFT>Wisdom</TH>
+<TH ALIGN=LEFT>Sat for</TH>
+<TH ALIGN=LEFT>Bother</TH>
+ <TH ALIGN=LEFT>Edit</TH> </TR>
+
+ {% for f  in form %}
+<div class="form-group">
+    <TR
+    ><TD> <a href="/efforts/view/{{ f.id }}">        {{f.inserttime }} </a></TD> 
+    <TD>         {{f.waketime }}</TD> 
+    <TD>         {{f.sleeptime }}</TD> 
+    <TD>         {{f.wisdom }}</TD> 
+    <TD>         {{f.sitting }}, {{ f.siteven }},{{ f.sitoth}} </TD> 
+    <TD>         {{f.bother }}</TD> 
+    <TD><a href="/efforts/view/{{ f.id }}/update">Edit? </a></TD>
+</div>
+     {% endfor %}
+
+</TABLE>
+
+{% endblock content %}
+

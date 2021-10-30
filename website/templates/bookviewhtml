@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}
+ {{ title }}
+
+{% endblock %}
+{% block content %}
+
+<h3> {{ title }} </h3>
+<table width=100% border=0 cellspacing=1 cellpadding=1 name=First>
+    <tr><th>Date</th><th>Wake up</th><th>XX</th><th>YY</th><th>  
+    <a href="/efforts/view/{{ form.id }}/update ">Edit </a>
+    </th></tr> 
+    <tr><th> {{ form.inserttime}} </th><th> {{ form.waketime}} </th><th> {{ form.x }} </th><th> {{ form.y }} </th></tr> 
+</table> <br>
+ Wisdom  {{ form.wisdom }}
+<br /><PRE>   
+    {{ form.journal }}
+ </PRE>
+ 
+ <a href="{{url_for('efforts.effort_home') }} " > Go Back </a>
+
+{% endblock %}

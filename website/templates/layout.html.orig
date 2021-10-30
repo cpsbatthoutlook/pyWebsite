@@ -11,8 +11,10 @@
      
 
         <div class="navbar">
-            <a href="http://www.google.com" class="navbar-brand">Bookmarks</a>
-            <a href="http://www.bing.com" class="navbar-brand">Bookmarks2</a>
+            <a href="{{ url_for('know.know_home') }}" class="navbar-brand">KnowledgeBase</a>
+            <a href="{{ url_for('know.pks') }}" class="navbar-item">SearchKnowledge</a>
+            <a href="{{ url_for('know.pka') }}" class="navbar-item">Add</a>
+            <a href="{{ url_for('book.book_home') }}" class="navbar-brand">Bookmarks</a>
             
         </div>
 

@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+            {{ title }}
+
+
+            {% endblock %}
+
+
+{% block content %}
+
+<form action="" method="post">
+    {{ form.hidden_tag() }}  
+    <!-- CSRF token -->
+    <fieldset class="form-group"> 
+        <legend class="border-bottom mb-4"> Join today </legend>            
+        <div class="form-group">
+                {{ form.waketime.label(class="form-control-label") }}
+                {{ form.waketime(class="form-control-label form-control-lg") }}
+        
+            {{ form.sleeptime.label(class="form-control-label") }}
+            {{ form.sleeptime(class="form-control-label form-control-lg") }}
+            {{ form.x.label(class="form-control-label") }}
+            {{ form.x(class="form-control-label form-control-lg", size=5) }}
+            {{ form.y.label(class="form-control-label") }}
+            {{ form.y(class="form-control-label form-control-lg", size=5) }}
+            {{ form.readb.label(class="form-control-label") }}
+            {{ form.readb(class="form-control-label form-control-lg", size=5) }}
+            {{ form.s_e.label(class="form-control-label") }}
+            {{ form.s_e(class="form-control-label form-control-lg", size=5) }}
+
+    </div>
+    <div class="form-group"> 
+        {{ form.sitting.label(class="form-control-label") }}
+            {{ form.sitting(class="form-control-label form-control-lg", size=10) }}
+        {{ form.siteven.label(class="form-control-label") }}
+            {{ form.siteven(class="form-control-label form-control-lg", size=10) }}
+        {{ form.sitoth.label(class="form-control-label") }}
+            {{ form.sitoth(class="form-control-label form-control-lg", size=10) }}
+
+    </div>
+    <div class="form-group">
+            {{ form.journal.label(class="form-control-label") }}
+            {{ form.journal(class="form-control-label form-control-lg", row='50', cols='100') }}
+        </div>
+        <div class="form-group">
+            {{ form.wisdom.label(class="form-control-label") }}
+            {{ form.wisdom(class="form-control-label form-control-lg", size=150) }}
+        </div>
+        <div class="form-group">
+            {{ form.bother.label(class="form-control-label") }}
+            {{ form.bother(class="form-control-label form-control-lg", size=150) }}
+        </div>
+
+        <div class="form-group">
+            {{ form.help_good.label(class="form-control-label") }}
+            {{ form.help_good(class="form-control-label form-control-lg", size=150) }}
+        </div>
+
+        
+        <div class="form-group">
+        </div>
+    </fieldset>
+    <div class="form-group"> {{ form.submit(class="btn btn-outline-info")}} </div>    
+
+{% endblock content %}
