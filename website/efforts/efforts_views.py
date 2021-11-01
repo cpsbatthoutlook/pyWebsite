@@ -6,7 +6,8 @@ effort_blueprint = Blueprint('efforts', __name__)
 
 @effort_blueprint.route("/efforts", methods=['GET', 'POST'])
 def effort_home():
-    return render_template("efforts.html", title="Home Page", form=efforts.query.all())
+    #return render_template("efforts.html", title="Home Page", form=efforts.query.all())
+    return render_template("efforts.html", title="Home Page", form=efforts.query.order_by(efforts.inserttime.desc()).limit(30).all())
 
 
 # @effort_blueprint.route("/efforts/search")
